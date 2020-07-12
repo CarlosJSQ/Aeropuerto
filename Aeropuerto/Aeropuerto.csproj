@@ -49,7 +49,6 @@
     <Compile Include="Aeropuerto.cs" />
     <Compile Include="Asiento.cs" />
     <Compile Include="Avion.cs" />
-    <Compile Include="catEmp.cs" />
     <Compile Include="Empleado.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

@@ -7,11 +7,22 @@ namespace Aeropuerto
 {
     public class Aeropuerto
     {
-        List<Vuelo> Vuelos = new List<Vuelo>();
+        public List<Vuelo> Vuelos{ get; set;}
+        public Aeropuerto()
+        {
+            Vuelos = new List<Vuelo>();
+        }
+        #region Metodos
+        public void cargalista(Vuelo vu)
+        {
+            this.Vuelos.Add(vu);
+        }
 
+        public List<Vuelo> damelista()
+        {
+            return Vuelos;
+        }
+        #endregion
 
-
-        //prop damelista
-        //metodo carga vuelo a lista
     }
 }

@@ -11,18 +11,22 @@ namespace Aeropuerto
     {
         public List<Vuelo> Vuelos { get; set; }
 
-        string _Avion;
+        Avion _Avion;
         string _origen;
         string _dest;
         DateTime _hrPart;
         DateTime _hrLleg;
         int _nroVuelo;
 
-        public string Avion
+        public Avion Avion
         {
             get
             {
                 return _Avion;
+            }
+            set
+            {
+                _Avion = value;
             }
         }
 
@@ -66,14 +70,13 @@ namespace Aeropuerto
             }
         }
 
-        public Vuelo(int nv, string ori,string dest, DateTime part, DateTime lleg, string avi)
+        public Vuelo(int nv, string ori,string dest, DateTime part, DateTime lleg)
         {
             this._nroVuelo = nv;
             this._origen = ori;
             this._dest = dest;
             this._hrPart = part;
             this._hrLleg = lleg;
-            this._Avion = avi;
         }
 
         public bool apertura(string nombre)
@@ -99,6 +102,11 @@ namespace Aeropuerto
         }
 
         public void linea(string nombre, string lin)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void lectura(string nombre)
         {
             throw new NotImplementedException();
         }

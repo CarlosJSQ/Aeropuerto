@@ -9,7 +9,7 @@ namespace Aeropuerto
 
     {
         int _legajo;
-        catEmp _categoria;
+        string _categoria;
         public int Legajo
         {
             get
@@ -18,7 +18,7 @@ namespace Aeropuerto
             }
         }
 
-        public catEmp catEmp
+        public string Categoria
         {
             get
             {
@@ -26,7 +26,7 @@ namespace Aeropuerto
             }
         }
 
-        public Empleado(int doc, string nom, string ape, int leg, catEmp cat) : base(doc, nom, ape)
+        public Empleado(int doc, string nom, string ape, int leg, string cat) : base(doc, nom, ape)
         {
             this._legajo = leg;
             this._categoria = cat;

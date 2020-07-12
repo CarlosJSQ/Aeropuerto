@@ -3,25 +3,30 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace Aeropuerto
 {
     public class Avion : iArchivo
     {
-        Asiento _asiento;
+        //La clase Avion maneja una tripulacion y una coleccion de asientos
+
         Tripulacion _Tripulacion;
-        int _empresa;
+        string _empresa;
         int _nroAvion;
         string _Modelo; 
 
-        List<Asiento> asientos = new List<Asiento>();
-        List<Tripulacion> Tripu = new List<Tripulacion>();
+        public List<Asiento> asientos { get; set; }
 
         public Tripulacion Tripulacion
         {
             get
             {
                 return _Tripulacion;
+            }
+            set
+            {
+                _Tripulacion = value;
             }
         }
 
@@ -41,7 +46,7 @@ namespace Aeropuerto
             }
         }
 
-        public int Empresa
+        public string Empresa
         {
             get
             {
@@ -49,31 +54,43 @@ namespace Aeropuerto
             }
         }
 
-        public Asiento Asiento
+        public Avion(int nro, string mod, string emp)
         {
-            get
-            {
-                return _asiento;
-            }
-        }
-
-        public Avion(int nro, string mod, int emp, Asiento asi, Tripulacion trip)
-        {
-            this._asiento = asi;
-            asientos.Add(asi);
             this._empresa = emp;
             this._Modelo = mod;
-            this._Tripulacion = trip;
-            Tripu.Add(trip);
             this._nroAvion = nro;
+            this.asientos = new List<Asiento>();
+        }
+        #region Metodos
+
+        public void addTripu(Tripulacion tr)
+        {
+            this.Tripulacion = new Tripulacion();
+            this.Tripulacion = tr;
         }
 
+        public void addasiento(Asiento asi)
+        {
+            this.asientos.Add(asi);
+        }
 
         public bool apertura(string nombre)
         {
-            throw new NotImplementedException();
+            bool ok = false;
+            FileStream fs = new FileStream(nombre, FileMode.Append);
+            StreamReader sr = new StreamReader(fs);
+            if (sr != null)
+            {
+                ok = true;
+                sr.Close();
+                fs.Close();
+                return ok;
+            }
+            sr.Close();
+            fs.Close();
+            return ok;
         }
-
+        #region NotImplemented
         public bool cierre(string nombre)
         {
             throw new NotImplementedException();
@@ -83,5 +100,7 @@ namespace Aeropuerto
         {
             throw new NotImplementedException();
         }
+        #endregion
+        #endregion
     }
 }

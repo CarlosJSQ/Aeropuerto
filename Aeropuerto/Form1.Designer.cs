@@ -36,6 +36,9 @@
             this.tbPasaje = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmbPart = new System.Windows.Forms.ComboBox();
+            this.cmbOrigen = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.txtAvion = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cmbAsiento = new System.Windows.Forms.ComboBox();
@@ -43,7 +46,6 @@
             this.cmbCat = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtLleg = new System.Windows.Forms.TextBox();
-            this.txtPart = new System.Windows.Forms.TextBox();
             this.cmbDest = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -74,8 +76,6 @@
             this.dtPart = new System.Windows.Forms.DateTimePicker();
             this.txtNumV = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.cmbOrigen = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.tbPasaje.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -154,6 +154,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cmbPart);
             this.groupBox2.Controls.Add(this.cmbOrigen);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.txtAvion);
@@ -163,7 +164,6 @@
             this.groupBox2.Controls.Add(this.cmbCat);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.txtLleg);
-            this.groupBox2.Controls.Add(this.txtPart);
             this.groupBox2.Controls.Add(this.cmbDest);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label9);
@@ -175,6 +175,34 @@
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del Vuelo";
+            // 
+            // cmbPart
+            // 
+            this.cmbPart.Enabled = false;
+            this.cmbPart.FormattingEnabled = true;
+            this.cmbPart.Location = new System.Drawing.Point(167, 53);
+            this.cmbPart.Name = "cmbPart";
+            this.cmbPart.Size = new System.Drawing.Size(139, 23);
+            this.cmbPart.TabIndex = 6;
+            // 
+            // cmbOrigen
+            // 
+            this.cmbOrigen.Enabled = false;
+            this.cmbOrigen.FormattingEnabled = true;
+            this.cmbOrigen.Location = new System.Drawing.Point(11, 106);
+            this.cmbOrigen.Name = "cmbOrigen";
+            this.cmbOrigen.Size = new System.Drawing.Size(139, 23);
+            this.cmbOrigen.TabIndex = 22;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(51, 90);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(44, 13);
+            this.label19.TabIndex = 23;
+            this.label19.Text = "Origen";
             // 
             // txtAvion
             // 
@@ -197,6 +225,7 @@
             // 
             // cmbAsiento
             // 
+            this.cmbAsiento.Enabled = false;
             this.cmbAsiento.FormattingEnabled = true;
             this.cmbAsiento.Location = new System.Drawing.Point(167, 104);
             this.cmbAsiento.Name = "cmbAsiento";
@@ -215,6 +244,7 @@
             // 
             // cmbCat
             // 
+            this.cmbCat.Enabled = false;
             this.cmbCat.FormattingEnabled = true;
             this.cmbCat.Location = new System.Drawing.Point(11, 158);
             this.cmbCat.Name = "cmbCat";
@@ -233,17 +263,12 @@
             // 
             // txtLleg
             // 
+            this.txtLleg.Enabled = false;
             this.txtLleg.Location = new System.Drawing.Point(323, 53);
             this.txtLleg.Name = "txtLleg";
+            this.txtLleg.ReadOnly = true;
             this.txtLleg.Size = new System.Drawing.Size(139, 21);
             this.txtLleg.TabIndex = 15;
-            // 
-            // txtPart
-            // 
-            this.txtPart.Location = new System.Drawing.Point(167, 53);
-            this.txtPart.Name = "txtPart";
-            this.txtPart.Size = new System.Drawing.Size(139, 21);
-            this.txtPart.TabIndex = 14;
             // 
             // cmbDest
             // 
@@ -252,6 +277,7 @@
             this.cmbDest.Name = "cmbDest";
             this.cmbDest.Size = new System.Drawing.Size(139, 23);
             this.cmbDest.TabIndex = 7;
+            this.cmbDest.SelectionChangeCommitted += new System.EventHandler(this.cmbDest_SelectionChangeCommitted);
             // 
             // label8
             // 
@@ -315,7 +341,7 @@
             // 
             // dtNaci
             // 
-            this.dtNaci.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNaci.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtNaci.Location = new System.Drawing.Point(166, 82);
             this.dtNaci.Name = "dtNaci";
             this.dtNaci.Size = new System.Drawing.Size(139, 21);
@@ -551,24 +577,6 @@
             this.label14.TabIndex = 11;
             this.label14.Text = "Nro Vuelo";
             // 
-            // cmbOrigen
-            // 
-            this.cmbOrigen.FormattingEnabled = true;
-            this.cmbOrigen.Location = new System.Drawing.Point(11, 106);
-            this.cmbOrigen.Name = "cmbOrigen";
-            this.cmbOrigen.Size = new System.Drawing.Size(139, 23);
-            this.cmbOrigen.TabIndex = 22;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(51, 90);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(44, 13);
-            this.label19.TabIndex = 23;
-            this.label19.Text = "Origen";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -625,7 +633,6 @@
         private System.Windows.Forms.ComboBox cmbCat;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtLleg;
-        private System.Windows.Forms.TextBox txtPart;
         private System.Windows.Forms.TextBox txtAvion;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TabPage tabPage3;
@@ -644,6 +651,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox cmbOrigen;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.ComboBox cmbPart;
     }
 }
 

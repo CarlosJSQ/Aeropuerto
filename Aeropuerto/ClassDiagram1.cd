@@ -27,7 +27,7 @@
     <AssociationLine Name="Vuelo" Type="Aeropuerto.Vuelo" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
         <Point X="7.062" Y="6.25" />
-        <Point X="7.062" Y="5.699" />
+        <Point X="7.062" Y="5.891" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -50,12 +50,11 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>IBEsAEAAARACIAAAAAQAAAAAAAAACAAAAAgABAAAAAA=</HashCode>
+      <HashCode>IBEEAEAAAVACIAAAAAQAAAAAAAAACAAAAAgAAAAAAAA=</HashCode>
       <FileName>Avion.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Tripulacion" />
-      <Property Name="Asiento" />
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
@@ -75,37 +74,17 @@
         <Point X="2.5" Y="1.062" />
       </Path>
     </InheritanceLine>
-    <AssociationLine Name="catEmp" Type="Aeropuerto.catEmp" FixedFromPoint="true">
-      <Path>
-        <Point X="3.438" Y="3.405" />
-        <Point X="3.438" Y="3.75" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
-        <Position X="-0.765" Y="0.102" Height="0.182" Width="0.712" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIBQAIAAAAAQABAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAAAAAAAIBQAIAAgAAQABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Empleado.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="catEmp" />
-    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Aeropuerto.Tripulacion">
     <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABEAIAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAABAAIAAAAAQAAAAAAAACAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Tripulacion.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Aeropuerto.catEmp">
-    <Position X="2.5" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAIAAAAAQAAAAAAAAAAAAAAAQAAQAAAAA=</HashCode>
-      <FileName>catEmp.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -135,7 +114,7 @@
   <Class Name="Aeropuerto.Vuelo">
     <Position X="6.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEEAQACBAAIEAAAAQAAAAAAAQAAEAQAAgECgAAAAA=</HashCode>
+      <HashCode>AAAEEAQACBAAIEAAAAQAAAAAAAQAAEAQIAgECgAAAAA=</HashCode>
       <FileName>Vuelo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -154,8 +133,8 @@
         <Point X="9.188" Y="5.75" />
         <Point X="9.188" Y="4.872" />
         <Point X="8.25" Y="4.872" />
-        <Point X="8.25" Y="3.85" />
-        <Point X="7.75" Y="3.85" />
+        <Point X="8.25" Y="3.967" />
+        <Point X="7.75" Y="3.967" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
