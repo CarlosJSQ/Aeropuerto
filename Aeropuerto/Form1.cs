@@ -37,6 +37,7 @@ namespace Aeropuerto
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            lblNroPas.Text = 1.ToString();
             CargaAsiento(ArAsientos);
             CargaAvion(ArAviones);
             CargaVuelos(ArVuelos);
@@ -74,6 +75,7 @@ namespace Aeropuerto
         }
 
         #region Carga de Archivos y Form
+
         public void CargaAsiento(string ar)//Carga de Archivo Asientos a Lista
         {
             StreamReader SR = new StreamReader(ar);
@@ -137,9 +139,9 @@ namespace Aeropuerto
             Vuelo nuevo;
             StreamReader SR = new StreamReader(ar);
             string l = SR.ReadLine();
-            l = SR.ReadLine();
             while (SR.Peek() != -1)
             {
+                l = SR.ReadLine();
                 string[] vl = l.Split(';');
                 DateTime aux1 = DateTime.ParseExact(vl[3], "dd/MM/yyyy HH:mm:ss",null);
                 DateTime aux2 = DateTime.ParseExact(vl[4], "dd/MM/yyyy HH:mm:ss", null);
@@ -155,24 +157,102 @@ namespace Aeropuerto
                 }
                 //listaVuelo.Add(nuevo);
                 Aero.cargalista(nuevo);
-                l = SR.ReadLine();
             }
             SR.Close();
         }
 
         public void IniForm()
         {
-            lblNroPas.Text = 1.ToString();
             //Linq para no repetir en Combo Destino
             var dupli =Aero.Vuelos.GroupBy(c => c.Dest).Select(g => g.First()).ToList();
             cmbDest.DataSource = dupli;
             cmbDest.DisplayMember = "Dest";
+            cmbDest.SelectedItem = null;
         }
         #endregion
 
+        //Metodo para buscar vuelos en lista segun destino
+        public List<Vuelo> Buscar (string dato)
+        {
+            var aux = from v in Aero.Vuelos
+                      where v.Dest == dato
+                      select v;
+            return aux.ToList();
+        }
+
         private void cmbDest_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            //CONTINUAR CARGANDO COMBOS Y TERMINAR
+            var auxcmb = cmbDest.SelectedItem as Vuelo;
+            bool valid = false;
+            var lista = Buscar(auxcmb.Dest);
+            if (auxcmb.Dest == "Buenos Aires")
+            {
+                //Linq para no repetir destinos en combo
+                var dupli = lista.GroupBy(c => c.Origen).Select(g => g.First()).ToList();
+                cmbOrigen.DataSource = dupli;
+                cmbOrigen.DisplayMember = "Origen";
+                cmbOrigen.Enabled = true;
+                cmbOrigen.SelectedItem = null;
+                valid = true;
+                cmbPart.Enabled = false;
+                cmbPart.DataSource = null;
+            }
+            else
+            {
+                cmbOrigen.DataSource = null;
+                if (valid == false)//Valido si antes fue seleccionado algun destino
+                {
+                    cmbOrigen.Items.Add(auxcmb);
+                    cmbOrigen.SelectedIndex = 0;
+                    cmbOrigen.DisplayMember = "Origen";
+                    cmbOrigen.Enabled = false;
+                    valid = true;
+                }
+                cmbPart.DataSource = lista;
+                cmbPart.DisplayMember = "horaPart";
+                cmbPart.Enabled = true;
+                cmbPart.SelectedItem = null;
+            }
+        }
+
+        private void cmbOrigen_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var auxcmb = cmbOrigen.SelectedItem as Vuelo;
+            var lista = Buscar(auxcmb.Origen);
+            cmbPart.DataSource = lista;
+            cmbPart.DisplayMember = "horaPart";
+            cmbPart.Enabled = true;
+            cmbPart.SelectedItem = null;
+        }
+
+        private void cmbPart_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var seleccion = cmbPart.SelectedItem as Vuelo;
+            var dupli = seleccion.Avion.asientos.GroupBy(c => c.Zona).Select(g => g.First()).ToList();
+            txtLleg.Text = Convert.ToString(seleccion.horaLlegada);
+            txtAvion.Text = Convert.ToString(seleccion.Avion.nroAvion);
+            cmbCat.DataSource = dupli;
+            cmbCat.Enabled = true;
+            cmbCat.DisplayMember = "Zona";
+            cmbCat.SelectedItem = null;
+        }
+
+        private void cmbAsiento_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCat_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var seleccion = cmbPart.SelectedItem as Vuelo;
+            var asientosel = cmbCat.SelectedItem as Asiento;
+            var lista = from a in seleccion.Avion.asientos
+                        where a.Zona == asientosel.Zona
+                        select a;
+            cmbAsiento.DataSource = lista.ToList();
+            cmbAsiento.Enabled = true;
+            cmbAsiento.DisplayMember = "nro";
+            cmbAsiento.SelectedItem = null;
         }
     }
 }

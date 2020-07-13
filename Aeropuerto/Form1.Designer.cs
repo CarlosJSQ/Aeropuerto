@@ -179,20 +179,24 @@
             // cmbPart
             // 
             this.cmbPart.Enabled = false;
+            this.cmbPart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPart.FormattingEnabled = true;
             this.cmbPart.Location = new System.Drawing.Point(167, 53);
             this.cmbPart.Name = "cmbPart";
             this.cmbPart.Size = new System.Drawing.Size(139, 23);
             this.cmbPart.TabIndex = 6;
+            this.cmbPart.SelectionChangeCommitted += new System.EventHandler(this.cmbPart_SelectionChangeCommitted);
             // 
             // cmbOrigen
             // 
             this.cmbOrigen.Enabled = false;
+            this.cmbOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbOrigen.FormattingEnabled = true;
             this.cmbOrigen.Location = new System.Drawing.Point(11, 106);
             this.cmbOrigen.Name = "cmbOrigen";
             this.cmbOrigen.Size = new System.Drawing.Size(139, 23);
             this.cmbOrigen.TabIndex = 22;
+            this.cmbOrigen.SelectionChangeCommitted += new System.EventHandler(this.cmbOrigen_SelectionChangeCommitted);
             // 
             // label19
             // 
@@ -226,11 +230,13 @@
             // cmbAsiento
             // 
             this.cmbAsiento.Enabled = false;
+            this.cmbAsiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbAsiento.FormattingEnabled = true;
             this.cmbAsiento.Location = new System.Drawing.Point(167, 104);
             this.cmbAsiento.Name = "cmbAsiento";
             this.cmbAsiento.Size = new System.Drawing.Size(139, 23);
             this.cmbAsiento.TabIndex = 18;
+            this.cmbAsiento.SelectionChangeCommitted += new System.EventHandler(this.cmbAsiento_SelectionChangeCommitted);
             // 
             // label11
             // 
@@ -245,11 +251,13 @@
             // cmbCat
             // 
             this.cmbCat.Enabled = false;
+            this.cmbCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCat.FormattingEnabled = true;
             this.cmbCat.Location = new System.Drawing.Point(11, 158);
             this.cmbCat.Name = "cmbCat";
             this.cmbCat.Size = new System.Drawing.Size(139, 23);
             this.cmbCat.TabIndex = 16;
+            this.cmbCat.SelectionChangeCommitted += new System.EventHandler(this.cmbCat_SelectionChangeCommitted);
             // 
             // label10
             // 
@@ -264,6 +272,7 @@
             // txtLleg
             // 
             this.txtLleg.Enabled = false;
+            this.txtLleg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLleg.Location = new System.Drawing.Point(323, 53);
             this.txtLleg.Name = "txtLleg";
             this.txtLleg.ReadOnly = true;
@@ -272,11 +281,13 @@
             // 
             // cmbDest
             // 
+            this.cmbDest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDest.FormattingEnabled = true;
             this.cmbDest.Location = new System.Drawing.Point(11, 53);
             this.cmbDest.Name = "cmbDest";
             this.cmbDest.Size = new System.Drawing.Size(139, 23);
             this.cmbDest.TabIndex = 7;
+            this.cmbDest.Text = "Seleccione";
             this.cmbDest.SelectionChangeCommitted += new System.EventHandler(this.cmbDest_SelectionChangeCommitted);
             // 
             // label8

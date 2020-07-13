@@ -9,8 +9,6 @@ namespace Aeropuerto
 {
     public class Vuelo : iArchivo
     {
-        public List<Vuelo> Vuelos { get; set; }
-
         Avion _Avion;
         string _origen;
         string _dest;
@@ -77,6 +75,11 @@ namespace Aeropuerto
             this._dest = dest;
             this._hrPart = part;
             this._hrLleg = lleg;
+        }
+
+        public Vuelo()
+        {
+
         }
 
         public bool apertura(string nombre)
