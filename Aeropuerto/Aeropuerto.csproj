@@ -56,6 +56,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVenta.Designer.cs">
+      <DependentUpon>frmVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Generico.cs" />
     <Compile Include="iArchivo.cs" />
     <Compile Include="Pasaje.cs" />
@@ -63,12 +69,21 @@
     <Compile Include="Persona.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegAvion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegAvion.Designer.cs">
+      <DependentUpon>RegAvion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registro.cs" />
     <Compile Include="Tripulacion.cs" />
     <Compile Include="Vuelo.cs" />
     <Compile Include="vtaPasaje.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVenta.resx">
+      <DependentUpon>frmVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -79,6 +94,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RegAvion.resx">
+      <DependentUpon>RegAvion.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -16,11 +16,6 @@ namespace Aeropuerto
             empTrip = new List<Empleado>();
         }
 
-        public void addTrip (Empleado tr)
-        {
-            this.empTrip.Add(tr);
-        }
-
         public bool apertura(string nombre)
         {
             bool ok = false;

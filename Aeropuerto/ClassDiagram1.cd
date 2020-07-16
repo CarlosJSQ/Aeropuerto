@@ -18,8 +18,8 @@
     <Position X="4.5" Y="5" Width="1.5" />
     <AssociationLine Name="Pasajero" Type="Aeropuerto.Pasajero" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="4.5" Y="6.375" />
-        <Point X="4.125" Y="6.375" />
+        <Point X="4.5" Y="6.304" />
+        <Point X="4.125" Y="6.304" />
         <Point X="4.125" Y="6.375" />
         <Point X="2" Y="6.375" />
       </Path>
@@ -31,21 +31,13 @@
         <Point X="6.25" Y="4.042" />
       </Path>
     </AssociationLine>
-    <AssociationLine Name="Asiento" Type="Aeropuerto.Asiento" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="6" Y="7.438" />
-        <Point X="11.75" Y="7.438" />
-        <Point X="11.75" Y="6.776" />
-      </Path>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAApAAAAADAAICEAAAQACAAAAAQAAAAAQAAABAAAAAA=</HashCode>
+      <HashCode>AAAhAAAAADAAICEAAAQACAAAAAQAAAAAQAAABAAAAAA=</HashCode>
       <FileName>Pasaje.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Pasajero" />
       <Property Name="Vuelo" />
-      <Property Name="Asiento" />
     </ShowAsAssociation>
     <Lollipop Position="0.954" />
   </Class>

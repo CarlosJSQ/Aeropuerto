@@ -10,19 +10,12 @@ namespace Aeropuerto
 {
     public class Pasajero : Persona, iArchivo
     {
-        int _nroCliente;
-        public int nroCliente
-        {
-            get
-            {
-                return _nroCliente;
-            }
-        }
+
 
         //Constructor de objeto Pasajero
-        public Pasajero(int doc, string nom, string ape, int cliente): base(doc, nom, ape)
+        public Pasajero(int doc, string nom, string ape): base(doc, nom, ape)
         {
-            this._nroCliente = cliente;
+
         }
 
         //Metodo de lectura de archivo Pasajeros

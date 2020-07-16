@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 
 namespace Aeropuerto
 {
     public class Pasaje: iArchivo
     {
-        private Asiento _asiento;
-        private int _nroPasaje;
+        private string _nroPasaje;
         private double _costo;
         private Pasajero _Pasajero;
         private Vuelo _Vuelo;
         private DateTime _fecha;
 
-        public int nroPasaje
+        public string nroPasaje
         {
             get
             {
@@ -52,23 +52,32 @@ namespace Aeropuerto
             {
                 return _fecha;
             }
-        }
+        }   
 
-        public Asiento Asiento
+        public Pasaje(string nro,double cost, Pasajero pa, Vuelo vu,DateTime dat)
         {
-            get
-            {
-                return _asiento;
-            }
+            this._nroPasaje = nro;
+            this._costo = cost;
+            this._Pasajero = pa;
+            this._Vuelo = vu;
+            this._fecha = dat;
         }
-
-        
-
-
 
         public bool apertura(string nombre)
         {
-            throw new NotImplementedException();
+            bool ok = false;
+            FileStream fs = new FileStream(nombre, FileMode.Append);
+            StreamReader sr = new StreamReader(fs);
+            if (sr != null)
+            {
+                ok = true;
+                sr.Close();
+                fs.Close();
+                return ok;
+            }
+            sr.Close();
+            fs.Close();
+            return ok;
         }
 
         public bool cierre(string nombre)

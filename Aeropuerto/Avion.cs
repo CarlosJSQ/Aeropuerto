@@ -9,14 +9,13 @@ namespace Aeropuerto
 {
     public class Avion : iArchivo
     {
-        //La clase Avion maneja una tripulacion y una coleccion de asientos
+        const string urlBase = @"C:\Users\carli\source\repos\Aeropuerto\Archivos\";
 
         Tripulacion _Tripulacion;
+        Asiento _asientos;
         string _empresa;
         int _nroAvion;
         string _Modelo; 
-
-        public List<Asiento> asientos { get; set; }
 
         public Tripulacion Tripulacion
         {
@@ -27,6 +26,13 @@ namespace Aeropuerto
             set
             {
                 _Tripulacion = value;
+            }
+        }
+        public Asiento asientos
+        {
+            get
+            {
+                return _asientos;
             }
         }
 
@@ -54,12 +60,12 @@ namespace Aeropuerto
             }
         }
 
-        public Avion(int nro, string mod, string emp)
+        public Avion(int nro, string mod, string emp, Asiento asi)
         {
             this._empresa = emp;
             this._Modelo = mod;
             this._nroAvion = nro;
-            this.asientos = new List<Asiento>();
+            this._asientos =asi;
         }
         #region Metodos
 
@@ -68,12 +74,6 @@ namespace Aeropuerto
             this.Tripulacion = new Tripulacion();
             this.Tripulacion = tr;
         }
-
-        public void addasiento(Asiento asi)
-        {
-            this.asientos.Add(asi);
-        }
-
         public bool apertura(string nombre)
         {
             bool ok = false;

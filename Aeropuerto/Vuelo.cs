@@ -75,6 +75,7 @@ namespace Aeropuerto
             this._dest = dest;
             this._hrPart = part;
             this._hrLleg = lleg;
+
         }
 
         public Vuelo()
@@ -98,7 +99,7 @@ namespace Aeropuerto
             fs.Close();
             return ok;
         }
-
+        #region Not Implemented
         public bool cierre(string nombre)
         {
             throw new NotImplementedException();
@@ -113,5 +114,6 @@ namespace Aeropuerto
         {
             throw new NotImplementedException();
         }
+        #endregion
     }
 }
